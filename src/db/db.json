@@ -1,0 +1,28 @@
+{
+  "sliders":[
+{
+  "id":1,
+  "title":"Kung Fu Panda 1",
+  "posterImg":"https://m.media-amazon.com/images/M/MV5BNGZhMzc0YjYtYzgxMS00NzIwLThkNzktMzFjNjQ3MjMyZGJiXkEyXkFqcGdeQXVyMTY3ODkyNDkz._V1_.jpg",
+  "genre":"animation"
+},
+{
+  "id":2,
+  "title":"Kung Fu Panda 2",
+  "posterImg":"https://m.media-amazon.com/images/M/MV5BNGZhMzc0YjYtYzgxMS00NzIwLThkNzktMzFjNjQ3MjMyZGJiXkEyXkFqcGdeQXVyMTY3ODkyNDkz._V1_.jpg",
+  "genre":"animation"
+},
+{
+  "id":3,
+  "title":"Kung Fu Panda 3",
+  "posterImg":"https://m.media-amazon.com/images/M/MV5BNGZhMzc0YjYtYzgxMS00NzIwLThkNzktMzFjNjQ3MjMyZGJiXkEyXkFqcGdeQXVyMTY3ODkyNDkz._V1_.jpg",
+  "genre":"animation"
+},
+{
+  "id":4,
+  "title":"Kung Fu Panda 4",
+  "posterImg":"https://m.media-amazon.com/images/M/MV5BNGZhMzc0YjYtYzgxMS00NzIwLThkNzktMzFjNjQ3MjMyZGJiXkEyXkFqcGdeQXVyMTY3ODkyNDkz._V1_.jpg",
+  "genre":"animation"
+}
+  ]
+}
