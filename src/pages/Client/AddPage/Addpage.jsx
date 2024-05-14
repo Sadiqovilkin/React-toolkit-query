@@ -1,51 +1,55 @@
-// import { useNavigate } from "react-router-dom";
-// import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
 
-// import { Input } from "antd";
-// import { Button } from "@mui/material";
+import { Input } from "antd";
+import { Button } from "@mui/material";
 
-// import Swal from "sweetalert2";
-// import { usePostMovieMutation } from "../../../services/movieQuery";
-// import Movies from "../../../classes/Movie.class";
-// const [ postMovie ] = usePostMovieMutation();
+import Swal from "sweetalert2";
+import { usePostMovieMutation } from "../../../services/movieQuery";
+import Movies from "../../../classes/Movie.class";
 
 
 
 
 const AddPage = () => {
-
-  // const navigate = useNavigate();
   
-  // const formik = useFormik({
-  //   initialValues: {
-  //     title: "",
-  //     posterImg: "",
-  //     releaseYear: "",
-
-  //   },
-  //   onSubmit:(values)=> {
-  //     const newMovie = new Movies(values.title , values.releaseYear , values.genre , values.posterImg)
-  //     postMovie(newMovie);
-  //     Swal.fire({
-  //       position: "top-center",
-  //       icon: "success",
-  //       title: "Your work has been saved",
-  //       showConfirmButton: false,
-  //       timer: 1500
-  //     }).then(() => navigate("/sliders"));
+  const [ postMovie ] = usePostMovieMutation();
+  const navigate = useNavigate();
+  
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+      posterImg: "",
+      releaseYear: "",
+      genre:""
+    },
+    onSubmit:(values)=> {
+      const newMovie = {
+        title:values.title,
+      posterImg:values.posterImg,
+      genre:values.genre,
+      releaseYear:values.releaseYear}
+      postMovie(newMovie);
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      }).then(() => navigate("/sliders"));
       
-  //     values={
-  //       title: "",
-  //       posterImg: "",
-  //       releaseYear: "",
-  //     };
-  //   },
-  // });
+      values={
+        title: "",
+        posterImg: "",
+        releaseYear: "",
+      };
+    },
+  });
 
 
   return (
     <>
-      {/* <form onSubmit={formik.handleSubmit}
+      <form onSubmit={formik.handleSubmit}
         style={{ width: "40%", margin: "180px auto" }}>
         <h1
           style={{ textAlign: "center", color: "blue", marginBottom: "15px" }}
@@ -78,6 +82,18 @@ const AddPage = () => {
             <span style={{ color: "red" }}>{formik.errors.posterImg}</span>
           )}
           <Input
+            id="genre"
+            name="genre"
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.genre}
+            placeholder="genre"
+
+          />
+          {formik.errors.genre && (
+            <span style={{ color: "red" }}>{formik.errors.genre}</span>
+          )}
+          <Input
             id="realaseYear"
             name="realaseYear"
             type="date"
@@ -93,7 +109,7 @@ const AddPage = () => {
             Success
           </Button>
         </div>
-      </form> */}
+      </form> 
   
     </>
   )

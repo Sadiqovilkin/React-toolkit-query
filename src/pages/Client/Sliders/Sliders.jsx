@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -8,15 +8,19 @@ import 'swiper/css/pagination';
 import './Sliders.scss'
 
 import { Pagination } from 'swiper/modules';
-import { useGetAllMovieQuery } from '../../../services/movieQuery';
+import { useDeleteMovieMutation, useGetAllMovieQuery } from '../../../services/movieQuery';
 import { Link } from 'react-router-dom';
-// const [deleteMovie, { isError, isSuccess }]  = useDeleteMovieMutation()
 const Sliders = () => {
-
+  
+  const [deleteMovie, { isError, isSuccess }]  = useDeleteMovieMutation()
   const {
     data: movies,
     refetch,
   } = useGetAllMovieQuery();
+
+  useEffect(()=>{
+    refetch()
+  },[])
   return (
     <>
       <Swiper
@@ -40,7 +44,7 @@ const Sliders = () => {
             </div>
             <div className="card-btns">
               <button onClick={async()=>{
-                // await deleteMovie(el.id)
+                await deleteMovie(el.id)
                 refetch()
               }} className='btn btn-danger '  >Delete</button>
               <Link className='btn btn-check '  to={`/sliders/${el.id}`}>Detail</Link>
